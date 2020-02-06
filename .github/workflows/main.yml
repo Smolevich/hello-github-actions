@@ -6,7 +6,10 @@ jobs:
     name: Hello world action
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: ./action-a
-      env:
-        MY_NAME: "Mona"
+      - uses: actions/checkout@v2
+      - name: echo commit
+        run: |
+          echo "code deployed to https://mk-${GITHUB_REF}.dev-stand.ru"
+      - uses: ./action-a
+        env:
+          MY_NAME: "Mona"
