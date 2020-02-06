@@ -10,4 +10,4 @@ jobs:
     - uses: ./action-a
       env:
         MY_NAME: "Mona"
-    - run: echo "just env variable output ${MY_NAME} and default variable: ${GITHUB_REF}
+    - run: echo "just env variable output ${MY_NAME} and default variable: ${GITHUB_REF}"
