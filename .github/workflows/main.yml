@@ -11,4 +11,4 @@ jobs:
       env:
         MY_NAME: "Mona"
     - uses: rlespinasse/github-slug-action@master
-    - run: echo "just env variable output ${MY_NAME} and default variable ${GITHUB_REF} and slug ${GITHUB_REF_SLUG}"
+    - run: echo "just env variable output ${MY_NAME} and default variable ${GITHUB_REF} and slug ${GITHUB_REF_SLUG} and through env context ${{env.GITHUB_REF_SLUG}}"
