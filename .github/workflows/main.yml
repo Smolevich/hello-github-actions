@@ -1,14 +1,19 @@
 name: A workflow for my Hello World file
-on: push
+on: [push,pull_request]
 
 jobs:
   build:
     name: Hello world action
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - uses: ./action-a
       env:
         MY_NAME: "Mona"
+    - name: echo commit
+      run: |
+        echo "code deployed to https://mk-${GITHUB_REF}.dev-stand.ru"
     - uses: rlespinasse/github-slug-action@master
-    - run: echo "just env variable output ${MY_NAME} and default variable ${GITHUB_REF} and slug ${GITHUB_REF_SLUG} and through env context ${{env.GITHUB_REF_SLUG}}"
+    - run: |
+        echo "just env variable output ${MY_NAME} and default variable ${GITHUB_REF} and slug ${GITHUB_REF_SLUG} and through env context ${{env.GITHUB_REF_SLUG}}"
+
